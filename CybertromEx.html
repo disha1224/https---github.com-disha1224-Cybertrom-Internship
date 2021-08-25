@@ -1,0 +1,112 @@
+<html>
+    <title>
+        Calculator
+    </title>
+    <head>
+       <style>
+          .one {
+             text-align: center;
+             align-items:center;
+          }
+          input {
+             height: 40px;
+             width: 250px;
+             border-color: black;
+             border-radius: 15px;
+             font: 1em sans-serif;
+          }
+          button {
+             background-color: aqua;
+             height: 55px;
+             width: 55px;
+             border-radius: 20px;
+             border-color: black;
+             font: bold;
+             font: 1em sans-serif;
+             font-size:x-large;
+          }
+          table {
+             background-color: brown;
+             border-color: black;
+             border-radius: 10px;
+             margin: auto;
+             align-items: center;
+             text-align: center;
+          }
+          
+       </style>
+    </head>
+
+    <body>
+       <div class="one">
+
+        <table>
+           <h1>Calculator</h1>
+            <tr>
+               <td colspan="3"><input type="text" id="result"/></td>
+            </tr>
+            <tr>
+                <td><button>C</button> </td>
+                <td><button>%</button></td>
+                <td><button>+</button> </td>
+            </tr>
+
+            <tr>
+                <td><button>/</button> </td>
+                <td><button>*</button> </td>
+                <td><button>-</button> </td>
+            </tr>
+            <tr>
+               
+               <td><button>1</button> </td>
+               <td><button>2</button>  </td>
+               <td><button>3</button> </td>
+            </tr>
+            <tr>
+               <td><button>4</button> </td>
+               <td><button>5</button>  </td>
+               <td><button>6</button> </td>
+            </tr>
+            <tr>
+               <td><button>7</button> </td>
+               <td><button>8</button>  </td>
+               <td><button>9</button> </td>
+            </tr>
+            <tr>
+               <td><button>.</button> </td>
+               <td><button>0</button>  </td>
+               <td><button>=</button> </td>
+            </tr>
+         </table>
+      </div>
+    </body>
+
+    <script>
+       let result = document.getElementById('result');
+buttons = document.querySelectorAll('button');
+let resultValue = '';
+for (item of buttons) {
+    item.addEventListener('click', (e) => {
+        buttonip = e.target.innerText;
+        console.log('Button typed is ', buttonip);
+        if (buttonip == 'X') {
+            buttonip = '*';
+            resultValue += buttonip;
+            result.value = resultValue;
+        }
+        else if (buttonip == 'C') {
+            resultValue = "";
+            result.value = resultValue;
+        }
+        else if (buttonip == '=') {
+            result.value = eval(resultValue);
+        }
+        else {
+            resultValue += buttonip;
+            result.value = resultValue;
+        }
+
+    })
+}
+    </script>
+</html>
